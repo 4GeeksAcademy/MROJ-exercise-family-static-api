@@ -60,7 +60,7 @@ def get_member(member_id):
 def add_member():
     member_data = request.json
     if not member_data.get("first_name") or not isinstance(member_data.get("age"), int) or not isinstance(member_data.get("lucky_numbers"), list):
-        return jsonify({"error": "Invalid data"}), 400
+        return jsonify({"error": "Datos inválidos"}), 400
 
     jackson_family.add_member(member_data)
     return jsonify({"message": "Miembro agregado de manera correcta"}), 200
