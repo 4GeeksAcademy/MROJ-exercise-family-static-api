@@ -54,7 +54,7 @@ def get_member(member_id):
     if member:
         return jsonify(member), 200
     else:
-        return jsonify({"error": "Member not found"}), 404
+        return jsonify({"error": "Miembro no encontrado"}), 404
     
 @app.route('/member', methods=['POST'])
 def add_member():
@@ -63,7 +63,7 @@ def add_member():
         return jsonify({"error": "Invalid data"}), 400
 
     jackson_family.add_member(member_data)
-    return jsonify({"message": "Member added successfully"}), 200
+    return jsonify({"message": "Miembro agregado de manera correcta"}), 200
 
 @app.route('/member/<int:member_id>', methods=['DELETE'])
 def delete_member(member_id):
@@ -71,7 +71,7 @@ def delete_member(member_id):
         jackson_family.delete_member(member_id)
         return jsonify({"done": True}), 200
     else:
-        return jsonify({"error": "Member not found"}), 404
+        return jsonify({"error": "Miembro no encontrado"}), 404
 
 # this only runs if `$ python src/app.py` is executed
 if __name__ == '__main__':
